@@ -3,3 +3,30 @@
 <h1><%= @question.title %></h1>
 
 <p><%= @question.description %></p>
+
+
+<ol>
+  <% @answers.each do |answer|%>
+    <li><%= answer.description %></li>
+  <% end %>
+</ol>
+
+<%= form_for [@answer] do |f| %>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </div>
+
+
+  <%= f.hidden_field(:question_id, value: @question.id) %>
+
+
+  <div class="actions">
+    <%= f.submit "Submit Answer" %>
+  </div>
+<% end %>
