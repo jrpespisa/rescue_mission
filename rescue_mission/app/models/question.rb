@@ -3,8 +3,8 @@ class Question < ActiveRecord::Base
   has_many :answers
 
   validates :title, presence: true
-  validates :title, length: { min: 40 }
-  validates :user, presence: true
+  validates :title, length: { minimum: 40 }
+  validates :user_id, presence: true
   validates :description, presence: true
-  validates :description, length: { min: 150 }
+  validates :description, length: { minimum: 150 }
 end

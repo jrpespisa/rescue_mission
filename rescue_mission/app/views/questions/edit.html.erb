@@ -1,3 +1,7 @@
+<h1>Edit Your Question</h1>
+
+<p><%= button_to "Delete Question", question_path, method: :delete %></p>
+
 <%= form_for(@question) do |f| %>
   <div class="field">
     <%= f.label :title %>
@@ -7,11 +11,6 @@
   <div class="field">
     <%= f.label :description %>
     <%= f.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
   </div>
 
   <div class="actions">

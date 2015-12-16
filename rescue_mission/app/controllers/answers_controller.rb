@@ -1,8 +1,12 @@
 class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
-    @answer.save
-    respond_to { |format| format.html { redirect_to :back, notice: 'New answer submitted!' } }
+    if @answer.save
+      respond_to { |format| format.html { redirect_to :back, notice: 'New answer submitted!' } }
+    else
+      flash[:notice] = "Please fill all forms correctly (description length >= 50)"
+      redirect_to :back
+    end
   end
 
   private
